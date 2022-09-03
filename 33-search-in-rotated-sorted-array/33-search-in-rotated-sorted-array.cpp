@@ -1,8 +1,8 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
-        int pivot = getPivot(nums);
         int n = nums.size()-1;
+        int pivot = getPivot(nums, n);
         if(target >= nums[pivot] && target <= nums[n])
         {
             return binarySearch(nums, pivot,n,target);
@@ -12,10 +12,8 @@ public:
         }
     }
     
-    int getPivot(vector<int>& arr){
-        
-        int n = arr.size();
-        int s = 0, e = n-1;
+    int getPivot(vector<int>& arr, int n){
+        int s = 0, e = n;
         
         int mid = s + (e-s)/2;
         while(s<e){
