@@ -1,18 +1,23 @@
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int left=0,right=nums.size()-1;
-        while(left<right && nums[left]>=nums[right]){
-            int mid=left+(right-left)/2;
-            if(nums[mid]<nums[left]){
-                right=mid;
-            }
-            else{
-                left=mid+1;
+        ios_base::sync_with_stdio(false);
+        cout.tie(NULL);
+        cin.tie(NULL);
+        
+        int start = 0, end = nums.size() - 1;
+        if (end == 0) return nums[0];
+        if (nums[end] > nums[0]) return nums[0];
+        while (start + 1 < end) {
+            int mid = start + (end - start) / 2;
+            if (nums[mid] > nums[0] ) {
+                start = mid;
+            } else {
+                end = mid;
             }
         }
-        return nums[left];
-
+        if (nums[end - 1] > nums[end]) return nums[end];
+        return -1;
     }
 
 };
