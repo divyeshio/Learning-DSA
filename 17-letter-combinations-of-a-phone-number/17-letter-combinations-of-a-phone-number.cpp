@@ -17,8 +17,11 @@ public:
         }
     }
     vector<string> letterCombinations(string digits) {
-        vector<string> ans;
+        ios_base::sync_with_stdio(false);
+        cout.tie(NULL);
+        cin.tie(NULL);
         
+        vector<string> ans;
         if(digits.length() ==0)
             return ans;
         string mapping[10] = {"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
